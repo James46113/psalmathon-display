@@ -24,3 +24,42 @@ document.addEventListener('keydown', (event) => {
         document.getElementById('percentage').innerText = `${(sungVerses(currentPsalm - 1) / totalVerses * 100).toFixed(1)}%`;
     }
 });
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (event) => {
+    touchStartX = event.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', (event) => {
+    touchEndX = event.changedTouches[0].screenX;
+    handleGesture();
+});
+
+document.addEventListener('click', () => {
+    currentPsalm++;
+    updateDisplay();
+});
+
+function handleGesture() {
+    if (touchEndX > touchStartX) {
+        currentPsalm--;
+    }
+    updateDisplay();
+}
+
+function updateDisplay() {
+    if (currentPsalm > 150) {
+        currentPsalm = 151;
+        document.getElementById('psalm').innerText = `All Psalms Completed`;
+        document.getElementById('percentage').innerText = `100%`;
+    } else if (currentPsalm < 1) {
+        currentPsalm = 0;
+        document.getElementById('psalm').innerText = `Awaiting Start`;
+        document.getElementById('percentage').innerText = `0.0%`;
+    } else {
+        document.getElementById('psalm').innerText = `Psalm ${currentPsalm}/150`;
+        document.getElementById('percentage').innerText = `${(sungVerses(currentPsalm - 1) / totalVerses * 100).toFixed(1)}%`;
+    }
+}
