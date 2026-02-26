@@ -1,0 +1,57 @@
+body {
+    font-family: Lato;
+    background-color: #11324F;
+    color: white;
+
+}
+
+.hc-logo {
+    max-width: 400px;
+}
+
+.hc-corona {
+    width: 100vw;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.main-container,
+.logos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logos-container {
+    position: absolute;
+    bottom: 50px;
+}
+
+.title {
+    margin-top: 8px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
+.percentage {
+    margin-top: auto;
+    font-size: 8rem;
+    margin-bottom: 10px;
+}
+
+.psalm {
+    font-size: 4rem;
+    margin-top: 0;
+}
+
+.charities-label {
+    margin-top: 70px;
+}
+
+.cmt {
+    width: 220px;
+    background-color: white;
+    padding: 5px;
+    margin-right: 20px;
+}
